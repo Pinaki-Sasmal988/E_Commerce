@@ -18,7 +18,7 @@
                <input type="hidden" name="product_id" value="{{ $product['id'] }}"><button class="btn btn-primary">Add To Card</button>
            </form>
            <hr>
-           <button class="btn btn-success">Buy Now</button>
+           <a  class="btn btn-success"href="ordernow">Buy Now</a>
 
         </div>
   </div>

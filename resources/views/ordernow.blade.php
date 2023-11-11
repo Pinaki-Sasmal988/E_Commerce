@@ -21,11 +21,11 @@
               </tr>
               <tr>
                 <td>Delivary</td>
-                <td>10 Rupees</td>
+                <td>{{ $total>1000?"No Delivery Charges required":"45 Rupess Delivery Charges" }}</td>
               </tr>
               <tr>
                 <td>Total Amount</td>
-                <td>{{ $total+10 }}</td>
+                <td>{{ $total>1000?$total:$total+10 }}</td>
               </tr>
             </tbody>
           </table>

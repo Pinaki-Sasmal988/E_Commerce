@@ -87,7 +87,8 @@ class ProductController extends Controller
         $ab=new user;
         $ab->name=$a->name;
         $ab->email=$a->email;
-        $ab->password=hash::make($a->password);
+        //$ab->password=hash::make($a->password);
+        $ab->password=$a->password;
         $ab->save();
         return redirect('/login');
 

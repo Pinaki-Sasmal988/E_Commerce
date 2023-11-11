@@ -17,16 +17,17 @@ class UserController extends Controller
         return "data insert";
     }*/
     function login(Request $req){
-      $data =user::where(['email'=>$req->email])->first(); 
+      $data =user::where(['email'=>$req->email,'password'=>$req->password])->first(); 
       //return $data->password; 
-      if(!$data || Hash::check($req->password,$data->password)){
-          
-        return "password does't match";
+     // if($data && Hash::check($req->password,'==',$data->password)){
+        if($data && $req->password == $data->password){  
+        $req->session()->put('user',$data);
+             return redirect('/');
+        
       }
       else
       {
-             $req->session()->put('user',$data);
-             return redirect('/');
+        return "password does't match";      
       }
     }
     function product(){
